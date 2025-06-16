@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDAH Info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ec7551d25d.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f4f9f9; /* Fondo azul claro */
+        }
+        .navbar {
+            background-color: #1a759f; /* Azul agradable */
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            color: #fff !important;
+            font-weight: bold;
+        }
+        .navbar-brand img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .nav-link {
+            color: #fff !important;
+            font-weight: bold;
+        }
+        .dropdown-menu {
+            background-color: #f4f9f9; /* Fondo suave */
+        }
+        .dropdown-item:hover {
+            background-color: #168aad; /* Azul oscuro */
+            color: #fff;
+        }
+        .carousel {
+            margin-top: 20px;
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+        }
+        section {
+            padding: 40px 20px;
+            background-color: #ffffff; /* Fondo blanco */
+        }
+        section h2 {
+            font-size: 2.5rem; /* Título grande */
+            color: #1a759f; /* Azul atractivo */
+            text-align: center; /* Centrado */
+            margin-bottom: 30px;
+        }
+        section p {
+            font-size: 1.5rem; /* Texto agradablemente grande */
+            color: #4a4a4a;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .strategies {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+            gap: 20px;
+        }
+        .strategy-card {
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        .strategy-card h3 {
+            font-size: 1.5rem;
+            color: #034c61;
+            margin-bottom: 15px;
+        }
+        .strategy-card ul {
+            padding-left: 20px;
+            color: #4a4a4a;
+            font-size: 1rem;
+        }
+        footer {
+            background-color: #034c61; /* Azul oscuro */
+            color: #fff;
+            padding: 20px 0;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: space-around; /* Divide en 2 columnas */
+            flex-wrap: wrap;
+        }
+        .footer-columns div {
+            flex: 1; /* Cada columna ocupa la mitad */
+            padding: 10px 20px;
+        }
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .social-icons a {
+            color: #34a0a4;
+            text-decoration: none;
+            font-size: 1.2rem; /* Iconos más grandes */
+        }
+        .social-icons a:hover {
+            color: #168aad; /* Azul oscuro */
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://img.icons8.com/ios/50/brain.png" alt="Icono de cerebro"> TDAH Info
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menu">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="registrosDropdown" role="button" data-bs-toggle="dropdown">
+                            Registros
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/registro">Registrar Paciente</a></li>
+                            <li><a class="dropdown-item" href="/registro_evaluacion">Registrar Evaluación</a></li>
+                            <li><a class="dropdown-item" href="/registro_tarea">Registrar Tarea</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="reportesDropdown" role="button" data-bs-toggle="dropdown">
+                            Reportes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/reporte">Reporte Paciente</a></li>
+                            <li><a class="dropdown-item" href="/reporte_evaluaciones">Reporte Evaluaciones</a></li>
+                            <li><a class="dropdown-item" href="/reporte_tareas">Reporte Tareas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrusel de Imágenes -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/img14.jpg" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/img15.jpg" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/img13.jpg" alt="Imagen 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    <!-- Mensaje de reflexión y Estrategias de Apoyo -->
+    <section>
+        <h2>Una Nueva Perspectiva</h2>
+        <p>
+            El TDAH no es una limitación, es una forma diferente de percibir y experimentar el mundo.
+            Cada persona con TDAH tiene talentos únicos y perspectivas valiosas que enriquecen nuestra sociedad.
+            Celebremos la neurodiversidad y cambiemos la narrativa.
+        </p>
+        <div class="container">
+            <h2 class="text-center mb-4">Estrategias de Apoyo</h2>
+            <div class="row">
+                <div class="col-md-4 col-12 mb-3">
+                    <div class="p-4 border rounded">
+                        <h3>En el Hogar</h3>
+                        <ul>
+                            <li>Establecer rutinas claras</li>
+                            <li>Crear espacios organizados</li>
+                            <li>Usar recordatorios visuales</li>
+                            <li>Mantener un ambiente tranquilo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <div class="p-4 border rounded">
+                        <h3>En el Trabajo/Estudio</h3>
+                        <ul>
+                            <li>Dividir tareas grandes en pequeñas</li>
+                            <li>Usar herramientas de organización</li>
+                            <li>Tomar descansos regulares</li>
+                            <li>Minimizar distracciones</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 mb-3">
+                    <div class="p-4 border rounded">
+                        <h3>En las Relaciones</h3>
+                        <ul>
+                            <li>Practicar la escucha activa</li>
+                            <li>Ser paciente y comprensivo</li>
+                            <li>Celebrar los logros</li>
+                            <li>Ofrecer apoyo constructivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Footer -->
+    <footer>
+    <div class="container">
+        <div class="row text-center text-md-start">
+            <!-- Columna de Contacto -->
+            <div class="col-md-6 col-12 mb-3">
+                <h3>Contáctanos</h3>
+                <p><strong>Email:</strong> info@tdahinfo.com</p>
+                <p><strong>Teléfono:</strong> +591 73874815</p>
+                <p><strong>Ubicación:</strong> Santa Cruz, Bolivia</p>
+            </div>
+            <!-- Columna de Redes Sociales -->
+            <div class="col-md-6 col-12 mb-3">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/50/facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=59173874815" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/50/whatsapp.png" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/50/twitter.png" alt="Twitter">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="https://img.icons8.com/ios-filled/50/instagram.png" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 text-center">
+            <p>&copy; 2025 Información del TDAH. Todos los derechos reservados.</p>
+            <a href="/menu" class="text-white text-decoration-none">
+                Política de Privacidad
+            </a>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

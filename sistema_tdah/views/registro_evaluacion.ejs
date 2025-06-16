@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Registrar Evaluación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ec7551d25d.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f4f9f9; /* Fondo azul claro */
+        }
+        .container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #ffffff; /* Fondo blanco */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        }
+        h1 {
+            text-align: center;
+            color: #1a759f; /* Azul agradable */
+        }
+        .form-label {
+            font-weight: bold; /* Etiquetas en negrita */
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 40px; /* Espaciado superior */
+        }
+        .btn-evaluacion {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-shadow: 0 4px 5px rgba(76, 175, 80, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-evaluacion:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+            color: white;
+        }
+        .btn-inicio {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-shadow: 0 4px 5px rgba(2, 136, 209, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-inicio:hover {
+            background-color: #026aa7;
+            transform: scale(1.05);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Registrar Evaluación</h1>
+    <form action="/guardar-evaluacion" method="POST">
+        <div class="mb-3">
+            <label for="paciente_id" class="form-label">Paciente:</label>
+            <select id="paciente_id" name="paciente_id" class="form-select" required>
+                <% pacientes.forEach(paciente => { %>
+                    <option value="<%= paciente.id %>"><%= paciente.nombre %></option>
+                <% }); %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="resultado" class="form-label">Resultado:</label>
+            <textarea id="resultado" name="resultado" class="form-control" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="psicopedagoga" class="form-label">Psicopedagoga:</label>
+            <input type="text" id="psicopedagoga" name="psicopedagoga" class="form-control" required>
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="btn-evaluacion"><i class="fas fa-user-plus" style="margin-right: 5px;"></i>Registrar</button>
+            <a href="/menu" class="btn-inicio"><i class="fas fa-home" style="margin-right: 5px;"></i>Inicio</a>
+        </div>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

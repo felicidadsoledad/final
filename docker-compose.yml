@@ -1,0 +1,39 @@
+services:
+  backend:
+    build: .
+    container_name: node_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=Feli1234-qb
+      - DB_NAME=sistema_tdah
+    depends_on:
+      - mysql
+    volumes:
+      - .:/app
+      - ./-env:/app/-env
+    networks:
+      - red_tdah
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Feli1234-qb
+      MYSQL_DATABASE: sistema_tdah
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - red_tdah
+
+volumes:
+  mysql_data:
+
+networks:
+  red_tdah:

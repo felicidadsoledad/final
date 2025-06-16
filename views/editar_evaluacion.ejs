@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Evaluación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ec7551d25d.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f4f9f9; /* Fondo azul claro */
+        }
+        .container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #1a759f;
+        }
+        .form-label {
+            font-weight: bold; /* Negrita para las etiquetas */
+        }
+        .btn-guardar {
+            background-color: #ff6f61; /* Coral Calido */
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-shadow: 0 4px 5px rgba(255, 111, 97, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-guardar:hover {
+            background-color: #e65c50; /* Morado más intenso */
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .btn-cancelar {
+            background-color: #6c757d; /* Gris elegante */
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            box-shadow: 0 4px 5px rgba(108, 117, 125, 0.4);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-cancelar:hover {
+            background-color: #5a6268;
+            transform: scale(1.05);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Editar Evaluación</h1>
+    <form action="/actualizar-evaluacion/<%= evaluacion.id %>" method="POST">
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" class="form-control" value="<%= evaluacion.fecha %>" required>
+        </div>
+        <div class="mb-3">
+            <label for="resultado" class="form-label">Resultado:</label>
+            <textarea id="resultado" name="resultado" class="form-control" rows="3" required><%= evaluacion.resultado %></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="psicopedagoga" class="form-label">Psicopedagoga:</label>
+            <input type="text" id="psicopedagoga" name="psicopedagoga" class="form-control" value="<%= evaluacion.psicopedagoga %>" required>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn-guardar"><i class="fas fa-save" style="margin-right: 5px;"></i>Guardar Cambios</button>
+            <a href="/reporte_evaluaciones" class="btn-cancelar"><i class="fas fa-undo" style="margin-right: 5px;"></i>Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

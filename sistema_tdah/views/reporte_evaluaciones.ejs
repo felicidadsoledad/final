@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Reporte de Evaluaciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ec7551d25d.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #e8f6f3; /* Fondo verde claro */
+        }
+        .container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        }
+        h1 {
+            text-align: center;
+            color: #1a759f; /* Azul agradable */
+        }
+        table {
+            margin-top: 20px;
+            width: 100%;
+        }
+        th {
+            background-color: #1a759f;
+            color: white;
+        }
+        td, th {
+            text-align: center;
+            padding: 10px;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 40px; /* Espaciado superior */
+        }
+        /* Botones de acción */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            height: 100%;
+        }
+        .action-buttons .btn {
+            width: 100px;
+            padding: 10px;
+        }
+        .action-buttons a {
+            margin-right: 20px;
+        }
+        /* Botón Modificar (amarillo) */
+        .action-buttons a.btn-warning {
+            background-color: #ffcc00;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 5px rgba(255, 204, 0, 0.5);
+            transition: transform 0.2s ease-in-out;
+        }
+        .action-buttons a.btn-warning:hover {
+            background-color: #e0ac00;
+            transform: scale(1.05);
+            color: white;
+        }
+        /* Botón Eliminar (rojo) */
+        a.btn-danger {
+            background-color: #e63946 !important;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 5px rgba(230, 57, 70, 0.5);
+        }
+        a.btn-danger:hover {
+            background-color: #c81d32 !important;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        /* Botón Registrar otra evaluación (verde) */
+        a.btn-evaluacion {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 5px rgba(76, 175, 80, 0.4);
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a.btn-evaluacion:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+            color: white;
+        }
+        /* Botón Inicio (azul) */
+        a.btn-inicio {
+            background-color: #0288d1;
+            color: white;
+            border: none;
+            box-shadow: 0 4px 5px rgba(2, 136, 209, 0.4);
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        a.btn-inicio:hover {
+            background-color: #026aa7;
+            transform: scale(1.05);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Reporte de Evaluaciones</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Paciente</th>
+                <th>Fecha</th>
+                <th>Resultado</th>
+                <th>Psicopedagoga</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% evaluaciones.forEach(evaluacion => { %>
+                <tr>
+                    <td><%= evaluacion.id %></td>
+                    <td><%= evaluacion.paciente %></td>
+                    <td><%= evaluacion.fecha %></td>
+                    <td><%= evaluacion.resultado %></td>
+                    <td><%= evaluacion.psicopedagoga %></td>
+                    <td class="action-buttons">
+                        <!-- Botón para modificar la evaluación -->
+                        <a href="/editar_evaluacion/<%= evaluacion.id %>" class="btn btn-warning">
+                        <i class="fas fa-edit" style="margin-right: 5px;"></i>Modificar</a>
+                        <!-- Botón para eliminar la evaluación -->
+                        <a href="/eliminar_evaluacion/<%= evaluacion.id %>?volver=/reporte_evaluaciones" class="btn btn-danger">
+                        <i class="fas fa-trash-alt" style="margin-right: 5px;"></i>Eliminar</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <!-- Botones adicionales -->
+    <div class="btn-container">
+        <!-- Botón para registrar otra evaluación -->
+        <a href="/registro_evaluacion" class="btn btn-evaluacion"><i class="fas fa-user-plus" style="margin-right: 5px;"></i>Registrar otra Evaluación</a>
+        <!-- Botón para regresar a inicio -->
+        <a href="/menu" class="btn btn-inicio"><i class="fas fa-home" style="margin-right: 5px;"></i>Inicio</a>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
